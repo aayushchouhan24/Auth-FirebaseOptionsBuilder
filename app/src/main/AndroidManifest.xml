@@ -1,0 +1,39 @@
+<manifest
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	package="com.techno.creator">
+	<uses-permission android:name="android.permission.INTERNET"/>
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+	<application
+		android:allowBackup="true"
+		android:name="com.techno.creator.App"
+		android:label="Nitro Account Creator"
+		android:icon="@drawable/app_icon"
+		android:largeHeap="true"
+		android:theme="@style/AppTheme">
+		<activity
+			android:name="com.techno.creator.MainActivity"
+			android:configChanges="orientation|screenSize"
+			android:theme="@style/AppTheme.FullScreen"
+			android:screenOrientation="portrait"
+			android:exported="true">
+			<intent-filter>
+				<action	android:name="android.intent.action.MAIN"/>
+				<category	android:name="android.intent.category.LAUNCHER"/>
+			</intent-filter>
+		</activity>
+		<meta-data
+			android:name="com.google.android.gms.version"
+			android:value="@integer/google_play_services_version"/>
+
+		<service
+			android:name="com.google.firebase.components.ComponentDiscoveryService"
+			android:exported="false">
+			<meta-data
+				android:name="com.google.firebase.components:com.google.firebase.auth.FirebaseAuthRegistrar"
+				android:value="com.google.firebase.components.ComponentRegistrar"/>
+		</service>
+		<uses-library
+			android:name="org.apache.http.legacy"
+			android:required="false"/>
+	</application>
+</manifest>
